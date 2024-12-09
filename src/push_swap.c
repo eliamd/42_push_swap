@@ -6,7 +6,7 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 11:16:18 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/06 17:58:52 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/09 12:01:16 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1, argc == 2);
+	stack_init(&a, argv, argc == 2);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)

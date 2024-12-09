@@ -6,7 +6,7 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 17:59:18 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/06 18:25:39 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/09 11:58:35 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,13 @@ bool	ft_isnumber(char *str)
 	return (true);
 }
 
-bool	error_repetition(t_stack_node *a, int nbr)
-{
-	t_stack_node	*tmp;
 
-	tmp = a;
-	while (tmp)
-	{
-		if (tmp->value == nbr)
-			return (true);
-		tmp = tmp->next;
-	}
-	return (false);
-}
 
 void	apprend_node(t_stack_node **stack, int nbr)
 {
 	t_stack_node	*node;
 	t_stack_node	*last_node;
+	t_stack_node	*t;
 
 	if (!stack)
 		return ;
@@ -98,7 +87,7 @@ void	apprend_node(t_stack_node **stack, int nbr)
 	}
 }
 
-void	stack_init(t_stack_node **a, char **argv, bool split)
+void	stack_init(t_stack_node **a, char **argv, bool flag_argc)
 {
 	int		i;
 	long	nbr;
@@ -108,9 +97,9 @@ void	stack_init(t_stack_node **a, char **argv, bool split)
 	{
 		nbr = ft_atoi_long(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			error_free(a, argv, flag_argc_2);
+			error_free(a, argv, flag_argc);
 		if (error_repetition(*a, (int)nbr))
-			error_free(a, argv, flag_argc_2);
+			error_free(a, argv, flag_argc);
 		apprend_node(a, (int)nbr);
 		i++;
 	}
