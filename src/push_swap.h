@@ -6,7 +6,7 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 11:04:58 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/09 18:24:32 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/09 18:44:42 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ void	pb(t_stack_node **a, t_stack_node **b, bool check);
 void	ra(t_stack_node **stack, bool check);
 void	rb(t_stack_node **stack, bool check);
 void	rr(t_stack_node **stack_a, t_stack_node **stack_b, bool check);
-
+//reverse rotate
+void	rra(t_stack_node **stack, bool check);
+void	rrb(t_stack_node **stack, bool check);
+void	rrr(t_stack_node **stack_a, t_stack_node **stack_b, bool check);
 // =============== End Commands ================
 
 #endif
