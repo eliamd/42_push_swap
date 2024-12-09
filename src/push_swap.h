@@ -6,7 +6,7 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 11:04:58 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/09 17:52:02 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/09 18:24:32 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,13 @@ typedef struct s_stack_node
 bool	ft_isnumber(char *str);
 void	stack_init(t_stack_node **a, char **argv, bool flag_argc);
 
-//utils
-int		ps_stack_len(t_stack_node **stack);
-void	print_stack(t_stack_node *stack);
+// =============== Utils ================
 
+int				ps_stack_len(t_stack_node **stack);
+void			print_stack(t_stack_node *stack);
+t_stack_node	*last_node(t_stack_node **stack);
+
+// =============== End Utils ================
 
 // =============== Commands ================
 
@@ -47,6 +50,11 @@ void	ss(t_stack_node **stack_a, t_stack_node **stack_b, bool check);
 //push
 void	pa(t_stack_node **a, t_stack_node **b, bool check);
 void	pb(t_stack_node **a, t_stack_node **b, bool check);
+//rotate
+void	ra(t_stack_node **stack, bool check);
+void	rb(t_stack_node **stack, bool check);
+void	rr(t_stack_node **stack_a, t_stack_node **stack_b, bool check);
+
 // =============== End Commands ================
 
 #endif
