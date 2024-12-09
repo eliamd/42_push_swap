@@ -6,7 +6,7 @@
 #    By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/01 14:02:05 by edetoh            #+#    #+#              #
-#    Updated: 2024/12/03 15:00:39 by edetoh           ###   ########.fr        #
+#    Updated: 2024/12/09 17:35:03 by edetoh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,9 @@ WHITE = \033[0;97m
 
 # =============================== SOURCES ===================================== #
 
-SRC_FILES	= pipex \
-			  pipex_utils \
-			  pipex_utils_args \
+SRC_FILES	= commands/push \
+			  utils/print_stack \
+			  utils/list_utils \
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(SRC_DIR), $(addsuffix .o, $(SRC_FILES)))
@@ -63,7 +63,7 @@ $(NAME):	$(OBJ)
 # ================================== CLEAN ==================================== #
 
 clean:
-			$(RM) -rf $(SRC_DIR)*.o
+			$(RM) -f $(OBJ)
 			make clean -C $(LIBFT)
 			$(RM) -f libft.a
 			@echo "$(BLUE)>>> ft_printf object files cleaned! <<<$(DEF_COLOR)"
