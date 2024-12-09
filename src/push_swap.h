@@ -6,7 +6,7 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 11:04:58 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/06 18:08:25 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/09 13:33:48 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ typedef struct s_stack_node
 }							t_stack_node;
 
 bool	ft_isnumber(char *str);
-void	stack_init(t_stack_node **a, char **argv, bool split);
+void	stack_init(t_stack_node **a, char **argv, bool flag_argc);
+
+//utils
+int		ps_stack_len(t_stack_node **stack);
+
+//commands
+void	sa(t_stack_node **stack, bool check);
+void	sb(t_stack_node **stack, bool check);
+void	ss(t_stack_node **stack_a, t_stack_node **stack_b, bool check);
 
 #endif
