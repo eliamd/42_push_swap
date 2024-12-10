@@ -6,7 +6,7 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 14:32:44 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/09 17:33:50 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/10 13:23:33 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	push(t_stack_node **src, t_stack_node **dest)
 {
-	t_stack_node *tmp;
+	t_stack_node	*tmp;
 
-	if (!src || ps_stack_len(src) == 0) //FIXME, peut etre pas bon
+	if (!src || ps_stack_len(src) == 0)
 		return ;
 	tmp = *src;
 	*src = (*src)->next;

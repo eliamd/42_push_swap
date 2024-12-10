@@ -6,7 +6,7 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:51:14 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/09 18:30:48 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/10 13:25:47 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rotate(t_stack_node **stack)
 {
-	t_stack_node *last;
+	t_stack_node	*last;
 
 	if (!stack || !*stack || ps_stack_len(stack) == 0)
 		return ;

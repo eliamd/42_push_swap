@@ -6,11 +6,12 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 11:16:18 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/09 12:01:16 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/10 14:57:46 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 int	main(int argc, char **argv)
 {
@@ -26,9 +27,9 @@ int	main(int argc, char **argv)
 	stack_init(&a, argv, argc == 2);
 	if (!stack_sorted(a))
 	{
-		if (stack_len(a) == 2)
+		if (ps_stack_len(&a) == 2)
 			sa(&a, false);
-		else if (stack_len(a) == 3)
+		else if (ps_stack_len(&a) == 3)
 			sort_three(&a);
 		else
 			sort_stacks(&a, &b);

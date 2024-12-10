@@ -6,7 +6,7 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:03:03 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/09 17:29:03 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/10 13:22:13 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void print_stack(t_stack_node *stack)
 {
-
 	t_stack_node *current = stack;
 	int position = 1;
 
