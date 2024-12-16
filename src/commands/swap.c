@@ -5,44 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 12:31:13 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/09 13:32:51 by edetoh           ###   ########.fr       */
+/*   Created: 2024/12/12 14:18:13 by edetoh            #+#    #+#             */
+/*   Updated: 2024/12/12 15:38:11 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap(t_stack_node **stack)
+static void	swap(t_stack_node **head)
 {
-	if (!stack || ps_stack_len(stack) == 1)
+	if (!*head || !(*head)->next)
 		return ;
-	*stack = (*stack)->next;
-	(*stack)->prev->prev = *stack;
-	(*stack)->prev->next = (*stack)->next;
-	if ((*stack)->next)
-		(*stack)->next->prev = (*stack)->prev;
-	(*stack)->next = (*stack)->prev;
-	(*stack)->prev = NULL;
+	*head = (*head)->next;
+	(*head)->prev->prev = *head;
+	(*head)->prev->next = (*head)->next;
+	if ((*head)->next)
+		(*head)->next->prev = (*head)->prev;
+	(*head)->next = (*head)->prev;
+	(*head)->prev = NULL;
 }
 
-void	sa(t_stack_node **stack, bool check)
+void	sa(t_stack_node	**a, bool print)
 {
-	swap(stack);
-	if (!check)
-		ft_putstr_fd("sa\n", 1);
+	swap(a);
+	if (!print)
+		ft_printf("sa\n");
 }
 
-void	sb(t_stack_node **stack, bool check)
+void	sb(t_stack_node **b, bool print)
 {
-	swap(stack);
-	if (!check)
-		ft_putstr_fd("sb\n", 1);
+	swap(b);
+	if (!print)
+		ft_printf("sb\n");
 }
 
-void	ss(t_stack_node **stack_a, t_stack_node **stack_b, bool check)
+void	ss(t_stack_node **a, t_stack_node **b, bool print)
 {
-	swap(stack_a);
-	swap(stack_b);
-	if (!check)
-		ft_putstr_fd("ss\n", 1);
+	swap(a);
+	swap(b);
+	if (!print)
+		ft_printf("ss\n");
 }

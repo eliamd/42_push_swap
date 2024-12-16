@@ -6,7 +6,7 @@
 #    By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/01 14:02:05 by edetoh            #+#    #+#              #
-#    Updated: 2024/12/10 16:50:57 by edetoh           ###   ########.fr        #
+#    Updated: 2024/12/16 11:50:12 by edetoh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,16 +38,17 @@ WHITE = \033[0;97m
 # =============================== SOURCES ===================================== #
 
 SRC_FILES	= commands/push \
-			  commands/reverse_rotate \
+			  procces/general_utils \
+			  commands/rev_rotate \
 			  commands/rotate \
 			  commands/swap \
-			  procces/node_init \
+			  commands/sort_stacks \
+			  commands/sort_three \
+			  procces/handle_errors \
+			  procces/init_a_to_b \
+			  procces/init_b_to_a \
 			  procces/stack_init \
-			  procces/swap_stack \
-			  procces/tiny_sort \
-			  utils/common_utils \
-			  utils/error_free \
-			  utils/list_utils \
+			  procces/stack_utils \
 			  push_swap \
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))

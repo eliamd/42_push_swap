@@ -5,39 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 14:32:44 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/10 13:23:33 by edetoh           ###   ########.fr       */
+/*   Created: 2024/12/16 12:03:48 by edetoh            #+#    #+#             */
+/*   Updated: 2024/12/16 12:04:40 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	push(t_stack_node **src, t_stack_node **dest)
+static void	push(t_stack_node **dst, t_stack_node **src)
 {
-	t_stack_node	*tmp;
+	t_stack_node	*push_node;
 
-	if (!src || ps_stack_len(src) == 0)
+	if (!*src)
 		return ;
-	tmp = *src;
+	push_node = *src;
 	*src = (*src)->next;
 	if (*src)
 		(*src)->prev = NULL;
-	tmp->next = *dest;
-	if (*dest)
-		(*dest)->prev = tmp;
-	*dest = tmp;
+	push_node->prev = NULL;
+	if (!*dst)
+	{
+		*dst = push_node;
+		push_node->next = NULL;
+	}
+	else
+	{
+		push_node->next = *dst;
+		push_node->next->prev = push_node;
+		*dst = push_node;
+	}
 }
 
-void	pa(t_stack_node **a, t_stack_node **b, bool check)
-{
-	push(b, a);
-	if (!check)
-		ft_putstr_fd("pa\n", 1);
-}
-
-void	pb(t_stack_node **a, t_stack_node **b, bool check)
+void	pa(t_stack_node **a, t_stack_node **b, bool print)
 {
 	push(a, b);
-	if (!check)
-		ft_putstr_fd("pb\n", 1);
+	if (!print)
+		ft_printf("pa\n");
+}
+
+void	pb(t_stack_node **b, t_stack_node **a, bool print)
+{
+	push(b, a);
+	if (!print)
+		ft_printf("pb\n");
 }

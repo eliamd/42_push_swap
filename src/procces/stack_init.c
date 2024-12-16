@@ -5,14 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 17:59:18 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/10 16:42:51 by edetoh           ###   ########.fr       */
+/*   Created: 2024/12/16 10:55:46 by edetoh            #+#    #+#             */
+/*   Updated: 2024/12/16 11:53:23 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	apprend_node(t_stack_node **stack, int nbr)
+void	current_index(t_stack_node *stack)
+{
+	int	i;
+	int	median;
+
+	i = 0;
+	if (!stack)
+		return ;
+	median = stack_len(stack) / 2;
+	while (stack)
+	{
+		stack->index = i;
+		if (i <= median)
+			stack->above_median = true;
+		else
+			stack->above_median = false;
+		stack = stack->next;
+		++i;
+	}
+}
+
+static void	append_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*node;
 	t_stack_node	*last_node;
@@ -23,36 +44,73 @@ void	apprend_node(t_stack_node **stack, int nbr)
 	if (!node)
 		return ;
 	node->next = NULL;
-	node->value = nbr;
-	if (!*stack)
+	node->nbr = n;
+	node->cheapest = 0;
+	if (!(*stack))
 	{
-		node->prev = NULL;
 		*stack = node;
+		node->prev = NULL;
 	}
 	else
 	{
-		last_node = *stack;
-		while (last_node->next)
-			last_node = last_node->next;
+		last_node = find_last(*stack);
 		last_node->next = node;
 		node->prev = last_node;
 	}
 }
 
-void	stack_init(t_stack_node **a, char **argv, bool flag_argc)
+void	init_stack_a(t_stack_node **a, char **argv)
 {
+	long	n;
 	int		i;
-	long	nbr;
 
 	i = 0;
 	while (argv[i])
 	{
-		nbr = ft_atoi_long(argv[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN)
-			free_error(a, argv, flag_argc);
-		if (error_repetition(*a, (int)nbr))
-			free_error(a, argv, flag_argc);
-		apprend_node(a, (int)nbr);
+		if (error_syntax(argv[i]))
+			free_errors(a);
+		n = ft_atol(argv[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			free_errors(a);
+		if (error_duplicate(*a, (int)n))
+			free_errors(a);
+		append_node(a, (int)n);
 		i++;
+	}
+}
+
+t_stack_node	*get_cheapest(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
+
+void	prep_for_push(t_stack_node **stack,
+						t_stack_node *top_node,
+						char stack_name)
+{
+	while (*stack != top_node)
+	{
+		if (stack_name == 'a')
+		{
+			if (top_node->above_median)
+				ra(stack, false);
+			else
+				rra(stack, false);
+		}
+		else if (stack_name == 'b')
+		{
+			if (top_node->above_median)
+				rb(stack, false);
+			else
+				rrb(stack, false);
+		}
 	}
 }

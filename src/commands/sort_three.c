@@ -1,44 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tiny_sort.c                                        :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 12:01:31 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/10 16:43:10 by edetoh           ###   ########.fr       */
+/*   Created: 2024/12/12 15:41:12 by edetoh            #+#    #+#             */
+/*   Updated: 2024/12/12 15:42:33 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack_node	*find_highsest_node(t_stack_node *node)
-{
-	t_stack_node	*node_work;
-	t_stack_node	*tmp;
-
-	if (!node)
-		return (NULL);
-	node_work = node;
-	tmp = node;
-	while (node_work)
-	{
-		if (node_work->value > tmp->value)
-			tmp = node_work;
-		node_work = node_work->next;
-	}
-	return (tmp);
-}
-
 void	sort_three(t_stack_node **a)
 {
-	t_stack_node	*highest_node;
+	t_stack_node	*biggest_node;
 
-	highest_node = find_highsest_node(*a);
-	if (*a == highest_node)
+	biggest_node = find_max(*a);
+	if (biggest_node == *a)
 		ra(a, false);
-	else if ((*a)->next == highest_node)
+	else if ((*a)->next == biggest_node)
 		rra(a, false);
-	if ((*a)->value > (*a)->next->value)
+	if ((*a)->nbr > (*a)->next->nbr)
 		sa(a, false);
 }
