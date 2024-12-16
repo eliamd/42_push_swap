@@ -6,7 +6,7 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:19:23 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/12 15:39:08 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:33:07 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
+	init_stack_a(&a, argv, argc == 2);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)
@@ -33,6 +33,10 @@ int	main(int argc, char **argv)
 		else
 			sort_stacks(&a, &b);
 	}
-	free_stack(&a);
-	return (0);
+	if (argc == 2)
+	{
+		free_tab(argv);
+		free(argv);
+	}
+	return (free_stack(&a), 0);
 }

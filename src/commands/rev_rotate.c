@@ -6,11 +6,16 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:03:42 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/16 12:03:43 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/16 16:04:27 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+// rev_rotate -> rotates the stack in reverse order.
+// Moves the last element to the top.
+// Parameter: stack (pointer to the stack).
+// Returns: Nothing (void function).
 
 static void	rev_rotate(t_stack_node **stack)
 {

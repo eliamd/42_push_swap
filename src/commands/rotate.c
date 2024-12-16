@@ -6,11 +6,16 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:02:31 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/16 12:02:32 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/16 16:05:36 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+// rotate -> rotates the stack by moving the first element
+// to the end of the stack.
+// Parameter: stack (pointer to the stack).
+// Returns: Nothing (void function).
 
 static void	rotate(t_stack_node **stack)
 {

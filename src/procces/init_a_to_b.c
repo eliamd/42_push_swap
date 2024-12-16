@@ -6,11 +6,16 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:01:11 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/16 11:34:32 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:04:06 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+// Sets target nodes in stack a based on stack b.
+// Parameters: a (stack a), b (stack b).
+// Finds best match in b for each node in a.
+// Returns: Nothing (void function).
 
 static void	set_target_a(t_stack_node *a, t_stack_node *b)
 {
@@ -40,6 +45,11 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
+// Analyzes and sets push costs for stack a nodes.
+// Parameters: a (stack a), b (stack b).
+// Calculates costs based on node positions.
+// Returns: Nothing (void function).
+
 static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
@@ -60,6 +70,11 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
+// Sets the cheapest node in the stack.
+// Parameter: stack (pointer to stack).
+// Finds and marks the node with the lowest cost.
+// Returns: Nothing (void function).
+
 void	set_cheapest(t_stack_node *stack)
 {
 	long			cheapest_value;
@@ -79,6 +94,11 @@ void	set_cheapest(t_stack_node *stack)
 	}
 	cheapest_node->cheapest = true;
 }
+
+// Initializes nodes in stack a for sorting.
+// Parameters: a (stack a), b (stack b).
+// Sets indices, targets, and costs for nodes.
+// Returns: Nothing (void function).
 
 void	init_nodes_a(t_stack_node *a, t_stack_node *b)
 {

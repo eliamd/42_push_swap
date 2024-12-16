@@ -6,7 +6,7 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:38:09 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/12 14:46:24 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:29:22 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,14 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-void	free_errors(t_stack_node **a)
+void	free_errors(t_stack_node **a, bool use_split, char **argv)
 {
 	free_stack(a);
+	if (use_split)
+	{
+		free_tab(argv);
+		free(argv);
+	}
 	ft_printf("Error\n");
 	exit(1);
 }

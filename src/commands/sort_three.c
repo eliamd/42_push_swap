@@ -6,11 +6,16 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 15:41:12 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/12 15:42:33 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/16 16:58:16 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+// Sorts a stack of three nodes in ascending order.
+// Parameter: a (pointer to stack a).
+// Uses rotations and swaps to sort the stack.
+// Returns: Nothing (void function).
 
 void	sort_three(t_stack_node **a)
 {

@@ -6,11 +6,20 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:34:04 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/16 12:07:35 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:17:20 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	free_tab(char **tab)
+{
+	while (*tab)
+	{
+		free(*tab);
+		tab++;
+	}
+}
 
 long	ft_atol(const char *s)
 {
@@ -33,6 +42,11 @@ long	ft_atol(const char *s)
 	return (result * sign);
 }
 
+// Rotates both stacks until target nodes are reached.
+// Parameters: a (stack a), b (stack b),
+// cheapest_node (node to move).
+// Returns: Nothing (void function).
+
 void	rotate_both(t_stack_node **a,
 						t_stack_node **b,
 						t_stack_node *cheapest_node)
@@ -43,6 +57,32 @@ void	rotate_both(t_stack_node **a,
 	current_index(*a);
 	current_index(*b);
 }
+
+void	current_index(t_stack_node *stack)
+{
+	int	i;
+	int	median;
+
+	i = 0;
+	if (!stack)
+		return ;
+	median = stack_len(stack) / 2;
+	while (stack)
+	{
+		stack->index = i;
+		if (i <= median)
+			stack->above_median = true;
+		else
+			stack->above_median = false;
+		stack = stack->next;
+		++i;
+	}
+}
+
+// Reverse rotates both stacks until target nodes.
+// Parameters: a (stack a), b (stack b),
+// cheapest_node (node to move).
+// Returns: Nothing (void function).
 
 void	rev_rotate_both(t_stack_node **a,
 								t_stack_node **b,

@@ -6,11 +6,15 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 12:03:48 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/16 12:04:40 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/16 16:00:51 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+// Push -> moves the top element from src to dst stack.
+// Parameters: dst (destination stack), src (source stack).
+// Returns: Nothing (void function).
 
 static void	push(t_stack_node **dst, t_stack_node **src)
 {

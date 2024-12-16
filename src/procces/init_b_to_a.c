@@ -6,11 +6,16 @@
 /*   By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 11:57:05 by edetoh            #+#    #+#             */
-/*   Updated: 2024/12/16 11:58:10 by edetoh           ###   ########.fr       */
+/*   Updated: 2024/12/16 17:05:18 by edetoh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+// Sets target nodes in stack b based on stack a.
+// Parameters: a (stack a), b (stack b).
+// Finds best match in a for each node in b.
+// Returns: Nothing (void function).
 
 static void	set_target_b(t_stack_node *a, t_stack_node *b)
 {
@@ -39,6 +44,11 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 		b = b->next;
 	}
 }
+
+// Initializes nodes in stack b for sorting.
+// Parameters: a (stack a), b (stack b).
+// Updates indices and sets target nodes in b.
+// Returns: Nothing (void function).
 
 void	init_nodes_b(t_stack_node *a, t_stack_node *b)
 {
