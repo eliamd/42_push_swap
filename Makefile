@@ -6,7 +6,7 @@
 #    By: edetoh <edetoh@student.42lehavre.fr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/01 14:02:05 by edetoh            #+#    #+#              #
-#    Updated: 2024/12/16 11:50:12 by edetoh           ###   ########.fr        #
+#    Updated: 2024/12/16 22:04:46 by edetoh           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBFT		= 42_libft-mylibft
 SRC_DIR		= src/
 CC			= cc
 CFLAGS		= -Wall -Werror -Wextra
-RM			= rm -f
+RM			= rm
 AR			= ar rcs
 
 # ================================ COULEURS =================================== #
@@ -34,6 +34,7 @@ BLUE = \033[0;94m
 MAGENTA = \033[0;95m
 CYAN = \033[0;96m
 WHITE = \033[0;97m
+NC = \033[0m # No Color
 
 # =============================== SOURCES ===================================== #
 
@@ -73,16 +74,18 @@ $(NAME):	$(OBJ)
 # ================================== CLEAN ==================================== #
 
 clean:
+			@echo "$(YELLOW)Cleaning object files...$(NC)"
 			$(RM) -f $(OBJ)
 			make clean -C $(LIBFT)
 			$(RM) -f libft.a
-			@echo "$(BLUE)>>> ft_printf object files cleaned! <<<$(DEF_COLOR)"
+			@echo "$(GREEN)Object files cleaned!$(NC)"
 
 fclean:		clean
+			@echo "$(YELLOW)Cleaning all files...$(NC)"
 			$(RM) -f $(NAME)
 			$(RM) -f libft.a
 			$(RM) -f $(LIBFT)/libft.a
-			@echo "$(CYAN)>>> ft_printf et libft executables cleaned! <<<$(DEF_COLOR)"
+			@echo "$(GREEN)All files cleaned!$(NC)"
 
 # ================================= REBUILD =================================== #
 
